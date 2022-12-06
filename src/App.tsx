@@ -2,7 +2,7 @@
 import * as THREE from 'three'
 import * as React from 'react'
 import { Canvas, useFrame, useLoader, useThree } from '@react-three/fiber'
-import { SpotLight, useGLTF } from '@react-three/drei'
+import { OrbitControls, SpotLight, useGLTF } from '@react-three/drei'
 
 function Box({ ...props }) {
 
@@ -16,6 +16,16 @@ function Box({ ...props }) {
 }
 
 export default function App() {
+  const [video] = React.useState(() => {
+    const vid = document.createElement("video");
+    vid.src = './video.mp4';
+    vid.crossOrigin = "Anonymous";
+    vid.loop = true;
+    vid.muted = true;
+    vid.play();
+    return vid;
+  });
+
   return (
     <Canvas shadows dpr={[1, 2]} camera={{ position: [-1, 2, 6], fov: 50, near: 1, far: 20 }}>
       <color attach="background" args={['#000000']} />
@@ -24,6 +34,16 @@ export default function App() {
       <Box position={[0, -1, 0]} scale={[10, 10, 10]} />
       <SpotLightMoving color="#0c8cbf" position={[-3, 3, 2]} />
       <SpotLightMoving color="#b00c3f" position={[1, 3, 0]} />
+      <mesh rotation={[0, 0, 0]} position={[0, 0, -1.1]}>
+        <planeGeometry args={[3, 2]} />
+        <meshStandardMaterial emissive={"white"} side={THREE.DoubleSide}>
+          <videoTexture attach="map" args={[video]} />
+          <videoTexture attach="emissiveMap" args={[video]} />
+        </meshStandardMaterial>
+      </mesh>
+
+      <OrbitControls maxPolarAngle={Math.PI / 2} minPolarAngle={0} />
+
     </Canvas>
   )
 }
