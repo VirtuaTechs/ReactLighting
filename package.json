@@ -10,7 +10,7 @@
   ],
   "main": "src/index.tsx",
   "dependencies": {
-    "@react-three/drei": "^9.46.2",
+    "@react-three/drei": "^9.47.1",
     "@react-three/fiber": "8.2.2",
     "@types/react": "18.0.15",
     "@types/three": "0.143.0",
