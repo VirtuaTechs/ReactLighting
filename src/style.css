@@ -1,0 +1,38 @@
+body {
+    background-color: rgb(243, 242, 242);
+}
+
+#three {
+    margin-left: 30vw;
+    width: 70vw;
+    height: 70vh;
+    margin-top: 15vh;
+    margin-bottom: 15vh;
+}
+
+#OptionsContainer {
+    position: fixed;
+    display: block;
+    left: 0;
+    top: 0;
+    width: 30vw;
+    height: 100vh;
+    background-color: rgb(243, 242, 242);
+}
+
+#Options {
+    list-style: none;
+    width: 20vw;
+    text-align: center;
+    margin-top: 20vh;
+    margin-left: 5vw;
+}
+
+#Options li {
+    border-color: black;
+    border-style: solid;
+    margin-top: 2vh;
+    padding-top: 2vh;
+    padding-bottom: 2vh;
+    cursor: pointer;
+}
